@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* Theme Light Colors */
+    --color-light: var(--color-neutral-50);
+    --color-surface-light: var(--color-white);
+    --color-primary-light: var(--color-sky-600);
+    --color-secondary-light: var(--color-gray-600);
+    --color-border-light: var(--color-gray-200);
+    --color-info-light: var(--color-teal-500);
+    --color-error-light: var(--color-red-500);
+    --color-warning-light: var(--color-amber-500);
+    --color-success-light: var(--color-green-500);
+
+    /* Theme Dark Colors */
+    --color-dark: var(--color-slate-900);
+    --color-surface-dark: var(--color-slate-800);
+    --color-primary-dark: var(--color-sky-400);
+    --color-secondary-dark: var(--color-slate-300);
+    --color-border-dark: var(--color-slate-700);
+    --color-info-dark: var(--color-teal-400);
+    --color-error-dark: var(--color-red-400);
+    --color-warning-dark: var(--color-amber-400);
+    --color-success-dark: var(--color-green-400);
+
+    /* Theme Font */
+    --font-nunito: "Nunito", sans-serif;
+}
+
+@layer base {
+    body {
+        @apply font-nunito bg-light dark:bg-dark text-primary-light dark:text-primary-dark;
+    }
+}
+
+@layer components {
+    .main {
+        height: calc(100vh - 5rem);
+        @apply flex justify-center p-10 items-start;
+    }
+
+    .header {
+        @apply flex justify-between items-center p-4 bg-surface-light
+        dark:bg-surface-dark;
+    }
+
+    .button {
+        @apply px-4 py-2 rounded bg-primary-light rounded-xl
+        dark:bg-primary-dark text-white hover:opacity-90 transition
+    }
+
+    .card {
+        @apply bg-surface-light dark:bg-surface-dark h-auto p-5 border-2 border-solid border-border-light rounded-xl
+        dark:border-border-dark
+    }
+
+    .form {
+        @apply flex flex-col ;
+    }
+
+    .inputText {
+        @apply border-2 border-solid border-border-light text-dark
+        dark:border-border-dark mb-4 p-2 rounded-xl dark:text-light;
+    }
+}
