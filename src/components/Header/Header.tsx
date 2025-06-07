@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
 
 const Header = () => {
-  const [isDark, setIsDark] = useState(() => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  useEffect(() => {
+    const userPreferredTheme = localStorage.getItem('theme');
+    if (userPreferredTheme) {
+      setIsDark(userPreferredTheme === 'dark');
+    } else {
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -16,6 +23,7 @@ const Header = () => {
 
   const toggleTheme = () => {
     setIsDark(!isDark);
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
   };
 
   return (
