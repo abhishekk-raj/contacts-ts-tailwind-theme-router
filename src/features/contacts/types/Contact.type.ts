@@ -1,9 +1,9 @@
 export interface Contact {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;
   address: string;
-  isFavorite: boolean;
+  isFavourite: boolean;
   icon?: string;
 }

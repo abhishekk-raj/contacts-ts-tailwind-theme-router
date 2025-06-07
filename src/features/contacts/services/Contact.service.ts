@@ -22,3 +22,28 @@ export const getContacts = (): Promise<ApiResponse<Contact[]>> => {
     }, 2000);
   });
 }
+
+export const createContact = async (req: Contact): Promise<ApiResponse<Contact[]>> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const contacts: Contact[] = JSON.parse(localStorage.getItem("contacts") || "[]");
+      const oldContactsCount = contacts.length;
+      contacts.push(req);
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+
+      if (contacts.length === oldContactsCount) {
+        return reject({
+          status: 404,
+          message: "Contact update failed!",
+          data: []
+        });
+      }
+
+      resolve({
+        status: 200,
+        message: "Contacts updated!",
+        data: contacts
+      });
+    }, 2000);
+  })
+}

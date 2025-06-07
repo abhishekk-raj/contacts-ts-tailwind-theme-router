@@ -62,7 +62,7 @@
     }
 
     .inputText {
-        @apply border-2 border-solid border-border-light text-dark
+        @apply border-2 border-solid border-border-light text-dark bg-surface-light dark:bg-surface-dark
         dark:border-border-dark mb-4 p-2 rounded-xl dark:text-light;
     }
 }

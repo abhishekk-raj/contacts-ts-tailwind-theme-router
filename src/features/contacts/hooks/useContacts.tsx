@@ -14,7 +14,6 @@ export const useContacts = () => {
         const response = await getContacts();
         setContacts(response.data);
       } catch (error: unknown) {
-        console.log(error);
         // @ts-ignore
         const message = error instanceof Error ? error.message : String(error?.message);
         setError(message);
