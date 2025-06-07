@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import {MoonIcon, SunIcon} from "@heroicons/react/16/solid";
 
 const Header = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -31,9 +32,14 @@ const Header = () => {
       <h1 className="text-xl font-bold">Contact Book</h1>
       <button
         onClick={toggleTheme}
-        className="button"
+        className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+        aria-label="Toggle Dark Mode"
       >
-        {isDark ? 'Light Mode' : 'Dark Mode'}
+        {isDark ? (
+          <SunIcon className="w-6 h-6 text-yellow-400"/>
+        ) : (
+          <MoonIcon className="w-6 h-6 text-gray-800"/>
+        )}
       </button>
     </header>
   );
