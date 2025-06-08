@@ -8,7 +8,7 @@
     --color-light: var(--color-neutral-50);
     --color-surface-light: var(--color-white);
     --color-primary-light: var(--color-sky-600);
-    --color-secondary-light: var(--color-gray-600);
+    --color-secondary-light: var(--color-gray-400);
     --color-border-light: var(--color-gray-200);
     --color-info-light: var(--color-teal-500);
     --color-error-light: var(--color-red-500);
@@ -19,7 +19,7 @@
     --color-dark: var(--color-slate-900);
     --color-surface-dark: var(--color-slate-800);
     --color-primary-dark: var(--color-sky-400);
-    --color-secondary-dark: var(--color-slate-300);
+    --color-secondary-dark: var(--color-slate-400);
     --color-border-dark: var(--color-slate-700);
     --color-info-dark: var(--color-teal-400);
     --color-error-dark: var(--color-red-400);
@@ -64,5 +64,10 @@
     .inputText {
         @apply border-2 border-solid border-border-light text-dark bg-surface-light dark:bg-surface-dark
         dark:border-border-dark mb-4 p-2 rounded-xl dark:text-light;
+    }
+
+    .avatar {
+        @apply inline-flex items-center justify-center rounded-full font-bold bg-light text-dark
+        dark:bg-dark dark:text-light;
     }
 }
