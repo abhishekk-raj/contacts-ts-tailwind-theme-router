@@ -48,8 +48,15 @@
     }
 
     .button {
-        @apply px-4 py-2 rounded bg-primary-light rounded-xl
-        dark:bg-primary-dark text-white hover:opacity-90 transition
+        @apply px-4 py-2 rounded rounded-xl hover:opacity-90 transition cursor-pointer;
+    }
+
+    .button-filled {
+        @apply bg-primary-light dark:bg-primary-dark text-white
+    }
+
+    .button-outlined {
+        @apply bg-transparent border-2 border-solid border-border-light dark:border-border-dark
     }
 
     .card {

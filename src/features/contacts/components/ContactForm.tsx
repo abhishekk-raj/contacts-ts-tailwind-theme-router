@@ -56,9 +56,20 @@ const ContactForm = () => {
                     onChange={(e) => setAddress(e.target.value)}/>
           <Select options={options} placeholder="Favourite contact?" value={isFavourite ? 'yes' : 'no'}
                   onChange={(e) => setIsFavourite(e.target.value === 'yes')}/>
-          <Button type="submit" disabled={loading}>
-            {loading ? "Creating..." : "Add Contact"}
-          </Button>
+
+          <div className="flex justify-end">
+            <Button
+              type="button"
+              variant="outlined"
+              className="mr-2"
+              onClick={() => navigate(-1)}
+            >
+              Cancel
+            </Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? "Creating..." : "Add Contact"}
+            </Button>
+          </div>
           {error && <p className="text-red-500">{error}</p>}
           {data && <p className="text-green-500">Contact Created Successfully!</p>}
         </form>

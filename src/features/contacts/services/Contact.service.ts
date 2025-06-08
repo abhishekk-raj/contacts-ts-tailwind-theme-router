@@ -23,6 +23,29 @@ export const getContacts = (): Promise<ApiResponse<Contact[]>> => {
   });
 }
 
+export const getContact = (contactId: string): Promise<ApiResponse<Contact>> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const contacts: Contact[] = JSON.parse(localStorage.getItem("contacts") || "[]");
+      const foundContact = contacts.find((contact) => contact.id === contactId);
+
+      if (!foundContact) {
+        return reject({
+          status: 404,
+          message: "No contacts found",
+          data: {}
+        });
+      }
+
+      resolve({
+        status: 200,
+        message: "Found contacts",
+        data: foundContact
+      });
+    }, 2000);
+  });
+}
+
 export const createContact = async (req: Contact): Promise<ApiResponse<Contact[]>> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
